@@ -1,3 +1,6 @@
 #!/bin/sh
 
-\curl -L https://get.rvm.io | bash -s head --autolibs=3 --ruby
+#\curl -L https://get.rvm.io | bash -s head --autolibs=3 --ruby
+
+wget --no-check-certificate https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh
+
