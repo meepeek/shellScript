@@ -1,0 +1,22 @@
+# sudo add-apt-repository [repository]
+
+# gstyle
+# ppa:s-lagui
+
+# Rapid Photo Downloader
+# ppa:dlynch3
+
+# NeatX FreeNX server
+ppa:freenx-team/ppa
+
+# Open Office
+ppa:openoffice-pkgs/ppa
+
+# Compiz
+ppa:compiz/ppa
+
+# Chrome Daily
+ppa:chromium-daily/ppa
+
+# Firefox
+ppa:ubuntu-mozilla-daily/ppa

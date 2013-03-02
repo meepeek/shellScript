@@ -1,0 +1,29 @@
+#!/bin/sh
+
+aptAdvanceUpgrade
+
+packageList=""
+
+while read line ; do
+	packageList="$packageList $line"
+done < /wings/shellScript/desktopInstall.list
+
+echo $packageList
+
+aptAdvance $packageList
+
+aptPN=$(ps -A | grep -c apt-get)
+while [ $aptPN -ge 1 ]; do
+  sleep 1;
+  aptPN=$(ps -A | grep -c apt-get)
+done
+
+# MindMap
+dpkg -i /wings/system/package/application/xmind-3.2.1.201011212218_i386.deb
+
+# Brother Printer Driver
+/wings/system/package/driver/printer/installDriver-Brother-DCP-7030
+
+# Chrome Flash Plugin
+mkdir /opt/google/chrome/plugins
+cp /usr/lib/flashplugin-installer/libflashplayer.so /opt/google/chrome/plugins/

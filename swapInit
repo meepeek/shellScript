@@ -1,0 +1,6 @@
+#!/bin/sh
+
+swapon -v /swapFile00
+swapon -v /swapFile01
+swapon -v /swapFile02
+swapon -v /swapFile03

@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys
+import re
+
+if __name__ == "__main__":
+    entries = []
+    while True:
+        line = sys.stdin.readline()
+        if not line: break
+        uri, name, size, chksum = line.split()
+        uri = re.sub(r"^'|'$", "", uri)
+        hashfunc, hashvalue = chksum.split(':')
+        hashfunc = hashfunc.lower()
+        if hashfunc == 'sha256':
+            hashfunc = 'sha-256'
+        entries.append((uri, name, size, hashfunc, hashvalue))
+       
+    print """<?xml version="1.0" encoding="UTF-8"?>
+    <metalink xmlns="urn:ietf:params:xml:ns:metalink">"""
+
+    for e in entries:
+        print """<file name="{name}">
+    <size>{size}</size>
+    <hash type="{hashfunc}">{hashvalue}</hash>
+    <url priority="1">{uri}</url>
+    </file>""".format(uri=e[0],name=e[1], size=e[2], hashfunc=e[3], hashvalue=e[4])
+    print """</metalink>"""

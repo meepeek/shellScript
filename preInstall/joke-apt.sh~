@@ -1,0 +1,14 @@
+# !/bin/sh
+if echo "$1" | grep -q "[upgrade]" || echo "$2" | grep -q "[install]" || echo "$2" | grep -q "dist-upgrade"; then 
+  echo "Joke's apt-axel multi-process cache download accelerating script."
+  echo "Processing ... ";
+  cd /var/cache/apt/archives/;
+  apt-get -y --print-uris $1 $2 $3 $4 > debs.list
+  egrep -o -e "(ht|f)tp://[^\']+" debs.list > download.list;
+  while read line ; do
+    axel -a $line &
+    sleep 3;
+  done < download.list
+else
+  echo "Invalid parameter."
+fi

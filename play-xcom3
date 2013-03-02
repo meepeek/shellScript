@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /wings/game
+sudoAuto umount cdrom
+sudoAuto mount -t iso9660 xcom3.iso cdrom -o loop
+dosbox

@@ -1,0 +1,4 @@
+# ! /bin/sh
+
+ipAddress=$(zenity --entry --title "Connect to remote RDP" --text "Please enter desitnation IP Address.");
+rdesktop -g 950x575 -u Joke $ipAddress

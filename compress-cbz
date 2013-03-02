@@ -1,0 +1,4 @@
+# ! /bin/sh
+
+currentDir=`pwd`
+zip $currentDir.cbz *

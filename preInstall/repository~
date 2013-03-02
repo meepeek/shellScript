@@ -1,0 +1,7 @@
+# gstyle
+sudo add-apt-repository ppa:s-lagui
+
+# Rapid Photo Downloader
+sudo add-apt-repository ppa:dlynch3
+sudo apt-get update
+sudo apt-get install rapid-photo-downloader

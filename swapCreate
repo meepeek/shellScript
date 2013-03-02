@@ -1,0 +1,13 @@
+#!/bin/sh
+
+dd if=/dev/zero of=/swapFile00 bs=4096 count=131072
+dd if=/dev/zero of=/swapFile01 bs=4096 count=131072
+dd if=/dev/zero of=/swapFile02 bs=4096 count=131072
+dd if=/dev/zero of=/swapFile03 bs=4096 count=131072
+mkswap /swapFile00
+mkswap /swapFile01
+mkswap /swapFile02
+mkswap /swapFile03
+swapInit
+cp /wings/shellScript/swapInit /etc/init.d/swapInit
+update-rc.d swapInit defaults

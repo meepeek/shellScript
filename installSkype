@@ -1,0 +1,3 @@
+"deb http://download.skype.com/linux/repos/debian/ stable non-free #Skype" | tee -a /etc/apt/sources.list > /dev/null
+apt-key adv --keyserver pgp.mit.edu --recv-keys 0xd66b746e
+aptitude update && aptAdvance install skype

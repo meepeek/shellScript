@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /wings/game/heroesWOG
+/wings/shellScript/runDisplay1 ./h3wog.exe

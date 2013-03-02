@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#conky -c /wings/interface/conky/nicedesignconky/conkyrc
+sleep 60 && conky -c /wings/interface/conky/conky/orange/conkyrc

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+aptitude -y install axel
+
+while read line ; do
+	add-apt-repository $line
+done < /wings/shellScript/serverInstall.repo
+
+aptitude update
+aptAdvanceUpgrade
+
+while read line ; do
+	aptAdvance $line
+done < /wings/shellScript/serverInstall.list
+
+# Chrome Flash Plugin
+mkdir /opt/google/chrome/plugins
+cp /usr/lib/flashplugin-installer/libflashplayer.so /opt/google/chrome/plugins/
+
+configFileRestore

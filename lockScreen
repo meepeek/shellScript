@@ -1,0 +1,5 @@
+#!/bin/sh
+sleep 10
+xdg-screensaver lock
+sleep 10
+mail-notification

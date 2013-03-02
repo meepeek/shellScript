@@ -1,0 +1,40 @@
+#!/bin/sh
+#if echo "$1" | grep -q "[upgrade]" || echo "$2" | grep -q "[install]" || echo "$2" | grep -q "dist-upgrade"; then 
+
+apt-get update;
+  echo "Advance APT Upgrade multi-process cache download accelerating script."
+  echo "Processing ... ";
+  cd /var/cache/apt/archives/;
+  apt-get -y --print-uris upgrade $1 > /tmp/debs.list
+  egrep -o -e "(ht|f)tp://[^\']+" /tmp/debs.list > /tmp/download.list;
+  while read line ; do
+#    axel -a $line &
+
+#		axelAdvance $line &
+	downloadPN=$(ps -A | grep -c download)
+	while [ $axelPN -ge 5 ]; do
+	  sleep 1;
+	  downloadPN=$(ps -A | grep -c download)
+	done
+	download $line &
+
+#    case $fileSize in
+#      [0-1][0-9][0-9][0-9][0-9]) echo "file is smaller than 10k which is $fileSize";;
+#      1[0-9][0-9][0-9][0-9][0-9][0-9]) echo "file is smaller than 1M which is $fileSize";;
+#      1[0-9][0-9][0-9][0-9][0-9][0-9][0-9]) echo "file is smaller than 10M which is $fileSize";;
+#      1[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]) echo "file is smaller than 100M which is $fileSize";;
+#      *) echo "file is larger than 100M which is $fileSize";;
+#    esac
+
+
+#    sudo axel $line &
+		sleep 1;
+  done < /tmp/download.list
+
+axelPN=$(ps -A | grep -c aria2c)
+while [ $axelPN -ge 1 ] ; do
+  sleep 1;
+  axelPN=$(ps -A | grep -c aria2c)
+done
+
+apt-get -y upgrade

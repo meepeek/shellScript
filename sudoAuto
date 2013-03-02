@@ -1,0 +1,9 @@
+#!/bin/sh
+
+SUDO="/usr/bin/sudo"
+
+if [ -t 1 ]; then
+  "$SUDO" "$@";
+else
+  gksudo -- "$SUDO" "$@";
+fi

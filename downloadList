@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while read line ; do
+	downloadPN=$(ps -A | grep -c download)
+	while [ $downloadPN -ge 5 ]; do
+#	  sleep 1;
+	  downloadPN=$(ps -A | grep -c download)
+	done
+	download $line &
+#	sleep 1;
+done < $1

@@ -1,0 +1,3 @@
+# ! /bin/sh
+
+rdesktop -g 1600x960 -u Joke $1

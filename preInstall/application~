@@ -1,0 +1,20 @@
+# Theme manager
+gstyle
+
+# Image Downloader
+# Download images from devices or folder, rename and insert sequential number.
+# rapid-photo-downloader
+
+# Manga Reading
+comix
+
+# Startup Manager
+startupmanager
+
+# Media Player
+benshee
+
+# Required for viewing Microsoft Media Server (mmc://) on websites
+ubuntu-restricted-extras
+
+deskbar

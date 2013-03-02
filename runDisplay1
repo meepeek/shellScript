@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#xinit "wine ~/.wine/drive_c/Program Files/Death Rally/dr.exe" $* -- :1
+#xinit /usr/local/games/enemy-territory/et $* -- :1
+
+sudoAuto xinit -- :1&
+
+#sleep 1
+
+sudoAuto DISPLAY=:1 $1
+
+#DISPLAY=:1 wine ~/.wine/drive_c/Program\ Files/Death\ Rally/dr.exe

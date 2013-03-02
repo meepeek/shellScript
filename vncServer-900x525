@@ -1,0 +1,3 @@
+#!/bin/sh
+
+vncserver -geometry 900x525 -randr 1600x960,1388x768,900x525

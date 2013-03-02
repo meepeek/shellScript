@@ -1,0 +1,45 @@
+# Screen capture
+shutter
+
+# add-apt-key
+add-apt-key
+
+# RDP Client interface
+gnome-rdp
+
+# Remote NX server
+neatx-server
+
+# Remote NX client
+opennx
+remmina
+
+# Scanner
+gnomescan
+
+# HP Plugins finder
+hp-plugin
+
+# Codecs
+w32codecs
+libdvdcss2
+
+# Theme manager
+gstyle
+
+# Image Downloader
+# Download images from devices or folder, rename and insert sequential number.
+# rapid-photo-downloader
+
+# Manga Reading
+comix
+
+# Startup Manager
+startupmanager
+
+# Media Player
+benshee
+
+# Required for viewing Microsoft Media Server (mmc://) on websites
+ubuntu-restricted-extras
+

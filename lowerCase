@@ -1,0 +1,4 @@
+ls > ./file.list
+while read line ; do
+  mv $line `echo $line | tr '[A-Z]' '[a-z]'`
+done < ./file.list

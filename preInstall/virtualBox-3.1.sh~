@@ -1,0 +1,3 @@
+# ! /bin/sh
+# Gnome Debian Package GUI
+sudo ./joke-apt.sh install libqt4-network libqtcore4 libqt4-opengl libqtgui4

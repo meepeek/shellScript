@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /wings/game/counterStrike
+./cstrike.exe -opengl

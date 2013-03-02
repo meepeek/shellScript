@@ -1,0 +1,3 @@
+#!/bin/sh
+#totem --enqueue "$1"
+vlc  --started-from-file --playlist-enqueue "$@"

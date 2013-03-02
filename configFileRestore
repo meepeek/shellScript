@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Samba share optimize
+
+#mv /usr/share/samba/smb.conf /usr/share/samba/smb.conf.bak
+#cp /wings/shellScript/configFile/smb.conf /usr/share/samba/
+
+# SSH no delay
+
+mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+cp /wings/shellScript/configFile/sshd_config /etc/ssh/ 

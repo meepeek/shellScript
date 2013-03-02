@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $# -eq 0 ] || echo "$1" | grep -q "help"; then
+	echo "\nUsage : convert-all2pdf [fileType]\n"
+	echo "Example : convert-all2pdf png\nThis will convert produce a output.pdf from all .png image file exist in current directory\n"
+else
+convert *.$1 output.pdf
+fi

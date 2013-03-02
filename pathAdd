@@ -1,0 +1,4 @@
+#!/bin/sh
+
+"PATH=$PATH:/wings/shellScript" | tee -a ~/.bashrc > /dev/null
+logout

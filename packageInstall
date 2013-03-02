@@ -1,0 +1,7 @@
+# !/bin/sh
+echo "Joke's debian preinstall package"
+cd /wings/package
+ls *.deb > /wings/package/package.list
+while read line ; do
+  dpkg -i $line
+done < /wings/package/package.list

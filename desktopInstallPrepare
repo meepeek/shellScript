@@ -1,0 +1,13 @@
+#!/bin/sh
+
+swapCreate
+configFileRestore
+
+aptitude -y install aria2
+
+desktopInstall.addition
+
+while read line ; do
+	add-apt-repository $line
+done < /wings/shellScript/desktopInstall.repo
+

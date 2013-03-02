@@ -1,0 +1,32 @@
+#!/bin/bash
+# mount
+
+#gksudo -k /bin/echo "got r00t?"
+
+#BASENAME=`basename $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS .iso`
+BASENAME=`basename $1`
+
+sudo mkdir "/media/$BASENAME"
+
+#zenity --info --title "ISO Mounter" --text "$BASENAME e $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+
+
+if sudo mount -o loop -t iso9660 $1 "/media/$BASENAME"
+then
+rm -rf ~/.wine/dosdevices/d:
+ln -s /media/$BASENAME ~/.wine/dosdevices/d:
+#if zenity --question --title "ISO Mounter" --text "$BASENAME Successfully Mounted. Open Volume?"
+#zenity --info --title "ISO Mounter" --text "$BASENAME Successfully Mounted."
+echo "$BASENAME Successfully Mounted."
+#then
+#nautilus /media/"$BASENAME" --no-desktop
+#fi
+
+exit 0
+else
+sudo rmdir "/media/$BASENAME"
+echo "Cannot mount $BASENAME!"
+#zenity --error --title "ISO Mounter" --text "Cannot mount $BASENAME!"
+
+exit 1
+fi

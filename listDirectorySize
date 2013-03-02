@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#NF is a predefined value meaning number of fields - by putting a $ in front of it you tell the print to print the last field. $1 would be the first (null as there is nothing in front of the first separator), $2 the second (usr), $3 the third (local), $4 the fourth (bin) and $5 the fifth (firefox). In this case NF = 5 so $NF is the same as $5.
+
+currentPath=$(pwd)
+for i in $(ls -l | awk '/^d/ { print $NF }') ; do
+	#echo $i
+	cd $i
+	echo $i'\t'$(du -ch | grep total)
+	cd $currentPath
+done

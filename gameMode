@@ -1,0 +1,16 @@
+#!/bin/bash
+
+COMP="false";
+if ps -A | grep compiz > /dev/null ; then
+echo "Warning: Compiz Detected!!!"
+metacity --replace > /dev/null &
+COMP="true"
+fi
+echo "Starting"
+$1
+echo "Finish"
+if $COMP ; then
+echo "Warning: Starting Compiz!!!"
+compiz --replace > /dev/null &
+fi
+exit

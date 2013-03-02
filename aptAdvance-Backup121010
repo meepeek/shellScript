@@ -1,0 +1,36 @@
+#!/bin/sh
+#if echo "$1" | grep -q "[upgrade]" || echo "$2" | grep -q "[install]" || echo "$2" | grep -q "dist-upgrade"; then
+
+#aptitude update;
+for i in $@; do
+  echo "Advance APT multi-process cache download accelerating script."
+  echo "Processing ... ";
+  cd /var/cache/apt/archives/;
+  apt-get -y --print-uris install $i > /tmp/debs.list
+  egrep -o -e "(ht|f)tp://[^\']+" /tmp/debs.list > /tmp/download.list;
+  while read line ; do
+	downloadPN=$(ps -A | grep -c download)
+	while [ $downloadPN -ge 5 ]; do
+	  sleep 1;
+	  downloadPN=$(ps -A | grep -c download)
+	done
+	download $line &
+#	sleep 1;
+  done < /tmp/download.list
+done
+
+#sleep 1;
+axelPN=$(ps -A | grep -c aria2c)
+while [ $axelPN -ge 1 ]; do
+  sleep 1;
+  axelPN=$(ps -A | grep -c aria2c)
+done
+
+#sleep 1;
+aptPN=$(ps -A | grep -c apt-get)
+while [ $aptPN -ge 1 ]; do
+  sleep 1;
+  aptPN=$(ps -A | grep -c apt-get)
+done
+
+apt-get -y install $@

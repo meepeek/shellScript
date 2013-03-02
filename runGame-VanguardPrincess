@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /wings/game/vanguardPrincess/ヴァンガードプリンセス
+./runGame

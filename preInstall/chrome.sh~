@@ -1,0 +1,10 @@
+# ! /bin/sh
+# Ubuntu Google Chrome install pre-require by Joke
+
+sudo mv /etc/apt/sources.list sources.list.bak
+sudo cp ./sourcesList/chrome.list /etc/apt/sources.list
+sudo add-apt-key ppa:chromium-daily/ppa
+sudo apt-get update
+sudo rm /etc/apt/sources.list
+sudo mv sources.list.bak /etc/apt/sources.list
+sudo ./joke-apt.sh install google-chrome

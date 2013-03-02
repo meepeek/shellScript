@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#axelPN=$(ps -A | grep axel | grep -v -c axelAdvance)
+echo "Downloading - $1"
+axelPN=$(ps -A | grep -c aria2c)
+while [ $axelPN -ge 5 ]; do
+  #echo "Stay in while Loop with $axelPN"
+  sleep 1;
+  axelPN=$(ps -A | grep -c aria2c)
+done
+echo "Start download - $1"
+    fileSize=$(wget --spider $1 2>&1 | grep Leng | awk '{print$2}')
+
+    if [ $fileSize -gt 100000000 ]; then
+	aria2c -j 12 $1 &
+#      echo "file is larger than 100M which is $fileSize";
+    elif [ $fileSize -gt 10000000 ]; then
+	aria2c -j 10 $1 &
+#      echo "file is larger than 10M which is $fileSize";
+    elif [ $fileSize -gt 1000000 ]; then
+	aria2c -j 7 $1 &
+#      echo "file is larger than 1M which is $fileSize";
+    elif [ $fileSize -gt 10000 ]; then
+	aria2c -j 3 $1 &
+#      echo "file is larger than 10k which is $fileSize";
+    else
+	aria2c -j 1 $1 &
+#      echo "file is smaller than 10k which is $fileSize";
+    fi
+
+echo "Download Complete - $1"

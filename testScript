@@ -1,0 +1,3 @@
+#!/bin/bash
+
+WINEDEBUG=fixme-all wine $1 -fullscreen -applaunch 10 -heapsize 512000 +map_background none "$@" 
